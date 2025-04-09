@@ -27,3 +27,7 @@ driver.find_element(By.ID,"country").send_keys("Ind") #this will enter the count
 wait = WebDriverWait(driver,10)
 wait.until(EC.presence_of_element_located((By.LINK_TEXT,"India"))) #this will wait for the India link to be displayed
 driver.find_element(By.LINK_TEXT,"India").click() #this will click on the India link
+driver.find_element(By.XPATH,"//div[@class='checkbox checkbox-primary']").click() #this will click on the checkbox
+driver.find_element(By.XPATH,"//input[@type='submit']").click() 
+successText = driver.find_element(By.CLASS_NAME,"alert-success").text 
+assert "Success! Thank you!" in successText 

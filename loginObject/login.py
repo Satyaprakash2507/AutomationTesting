@@ -1,12 +1,13 @@
    
-
+from utils.browserutils import BrowserUtils  
 
 from selenium.webdriver.common.by import By
 
 from loginObject.shopPage import ShopPage
 #self is a instance of class variable. it is used to use the class variable in the class methods
-class LoginPage:
+class LoginPage(BrowserUtils):
     def __init__(self, driver):
+        super().__init__(driver) # this will call the constructor of the parent class and initialize the driver in the parent class.
         self.driver = driver
 
         self.username_input = (By.ID,"username") # this is a tuple (By.ID,"username") 

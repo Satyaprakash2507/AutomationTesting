@@ -23,11 +23,13 @@ def test_e2e(browserInstance,test_list_items):
     
 
     loginPage = LoginPage(driver) #this will create an instance of the LoginPage class and sending driver as an argument to the Login constructor
+    print(loginPage.getTitle()) #this will call the getTitle method of the BrowserUtils class and return the title of the page
     shop_page = loginPage.login(test_list_items["userEmail"], test_list_items["userPassword"]) #this will call the login method of the LoginPage class
-
+    
    
    # shop_page = ShopPage(driver) #creating the object of the class. Instend of here i will create the object in the Login.py file
     shop_page.addProduct_to_cart(test_list_items["productName"])
+    print(shop_page.getTitle())
     
     checkout_confirmation =  shop_page.goToCart()
     checkout_confirmation.checkout()

@@ -1,10 +1,14 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from utils.browserutils import BrowserUtils  
 
-class Checkout_Confirmation:
+
+class Checkout_Confirmation(BrowserUtils):
     def __init__(self, driver):
         self.driver = driver
+        super().__init__(driver) # this will call the constructor of the parent class and initialize the driver in the parent class.
+
         
         self.checkout_button = (By.XPATH,"//button[@class='btn btn-success']")
         self.county_input = (By.ID,"country")

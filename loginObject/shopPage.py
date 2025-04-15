@@ -1,9 +1,13 @@
 from selenium.webdriver.common.by import By
 from loginObject.checkout_comfi import Checkout_Confirmation 
+from utils.browserutils import BrowserUtils  
 
-class ShopPage:
+
+class ShopPage(BrowserUtils):
     def __init__(self, driver):
         self.driver = driver
+        super().__init__(driver) # this will call the constructor of the parent class and initialize the driver in the parent class.
+
 
         self.shop_link = (By.CSS_SELECTOR," a[href*='shop']")
         self.product_cards = (By.XPATH,"//div[@class='card h-100']") 
